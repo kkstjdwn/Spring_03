@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.coo.s3.model.board.NoticeVO;
+import com.coo.s3.util.RowMaker;
 
 @Repository
 public class NoticeDAO {
@@ -45,9 +46,8 @@ public class NoticeDAO {
 		return sqlSession.selectOne(NAMESPACE+"noticeCount");
 	}
 	
-	public List<NoticeVO> noticeList(Map<String, Integer> map) throws Exception{
-
-		return sqlSession.selectList(NAMESPACE+"noticeList",map);
+	public List<NoticeVO> noticeList(RowMaker maker) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"noticeList",maker);
 	}
 	
 	public int noticeUpdate(NoticeVO vo) throws Exception{

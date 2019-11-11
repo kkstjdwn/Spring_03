@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.coo.s3.model.board.NoticeVO;
 import com.coo.s3.service.board.NoticeService;
+import com.coo.s3.util.Pager;
 
 @Controller
 @RequestMapping(value = "notice/**")
@@ -23,14 +24,10 @@ public class NoticeController {
 	
 	//List
 	@RequestMapping("noticeList")
-	public void noticeList(Model model, @RequestParam(required = false, defaultValue = "1") int curPage) throws Exception	{
-		Map<String , Object> map = service.noticeList(curPage); 
-		List<NoticeVO> ar = (List<NoticeVO>)map.get("list");
-		int totalPage = (Integer)map.get("totalPage");
-		
-		model.addAttribute("totalPage",totalPage);
+	public void noticeList(Model model,Pager pager) throws Exception	{
+		List<NoticeVO> ar =service.noticeList(pager);
 		model.addAttribute("list", ar);
-		
+		model.addAttribute("pager", pager);
 	}
 	
 	@RequestMapping("noticeSelect")
