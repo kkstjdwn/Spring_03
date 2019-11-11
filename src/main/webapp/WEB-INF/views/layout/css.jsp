@@ -11,4 +11,9 @@
 	}
 	#contents{
 	min-height: 400px;}
+	.page_div{
+	margin: auto;
+	text-align: center;
+	}
+
 </style>

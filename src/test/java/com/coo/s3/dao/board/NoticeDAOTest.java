@@ -22,13 +22,18 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	@Test
 	public void insertTest() throws Exception{
-		NoticeVO vo = new NoticeVO();
-		vo.setNum(1);
-		vo.setTitle("셑제목");
-		vo.setWriter("셑작성자");
-		vo.setContents("셑내용");
-		int result = noticeDAO.noticeUpdate(vo);
-		assertEquals(1, result);
+//		for (int i = 83; i < 150; i++) {
+//			NoticeVO vo = new NoticeVO();
+//			vo.setTitle(i+"번째 제목");
+//			vo.setWriter(i+"번째 작성자");
+//			vo.setContents("ㅎ");
+//			Thread.sleep(50);
+//			int result = noticeDAO.noticeInsert(vo);
+//			
+//		}
+
+		int count = noticeDAO.noticeCount();
+		System.out.println(count/10+1);
 	}
 //	
 //	

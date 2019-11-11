@@ -6,7 +6,7 @@
 <head>
 <title>Notice Main</title>
 <meta charset="utf-8">
-
+<c:import url="../layout/css.jsp"  />
 </head>
 </head>
 <body>
@@ -40,6 +40,16 @@
 		</table>
 		<!--**********************버튼그룹 -->
 		<!-- session member, memberDTO -->
+		
+		<div class="page_div">
+			<ul class="pagination">
+			<c:forEach begin="1" end="${totalPage }" var = "i">
+    			<li><a href="noticeList?curPage=${i }">${i }</a></li>
+			</c:forEach>
+  			</ul>
+		
+		</div>
+		
 		<c:if test="${empty sessionScope.member}">
 		<a href="noticeWrite" class="btn btn-info" id = "btn_right">글쓰기</a>
 		</c:if>

@@ -16,9 +16,14 @@
   		select * from notice where num = #{num}
   	</select>
   	
-  	<select id="noticeList" resultType="com.coo.s3.model.board.NoticeVO">
+  	<select id="noticeCount" resultType="java.lang.Integer">
+  		select count(num) from notice
+  	</select>
+  	
+  	<select id="noticeList" parameterType="java.util.Map" resultType="com.coo.s3.model.board.NoticeVO">
   		
-  		select * from notice order by num desc
+  		select * from (select N.*, ROWNUM R from    (select * from notice ORDER BY num DESC) N )
+		WHERE r BETWEEN #{startRow} and #{lastRow}
   	
   	</select>
   	
