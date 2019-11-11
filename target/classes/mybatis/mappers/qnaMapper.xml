@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mybatis 첫 mapper 만들때 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="qnaMapper">
+  
+<!--   	<select id="qnaList" parameterType=""> -->
+<!--   		select * from qna order by num desc; -->
+  	
+<!--   	</select> -->
+  	
+  	<insert id="qnaInsert"  parameterType="com.coo.s3.model.board.QnaVO" >
+  		
+  		insert into qna values(not_seq.nextval,#{title},#{writer},#{contents},sysdate,0,0,0,0)
+  	
+  	</insert>
+  </mapper>
