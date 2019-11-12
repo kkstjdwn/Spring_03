@@ -1,4 +1,5 @@
 <style type="text/css">
+
 	#btn_right{
 	float: right;
 	margin-right: 0px;
@@ -26,6 +27,7 @@
 	#form_search{
 	width: 300px;
 	float: left;}
+
 
 	#btn_right{
 	float: right;
@@ -89,6 +91,7 @@
 	}
 	#btn_ser{
 	float: left;}
+
 
 
 	

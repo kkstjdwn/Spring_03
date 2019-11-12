@@ -3,6 +3,7 @@ package com.coo.s3.util;
 public class Pager {
 	
 	private Integer curPage;
+
 	private final Integer PERPAGE = 10;
 	private String kind;
 	private String search;
@@ -19,18 +20,20 @@ public class Pager {
 
 
 
+
 	public String getSearch() {
 		if (this.search == null) {
+
 			this.search="";
 		}
 		return search;
 	}
 
 
-
 	public void setSearch(String search) {
 		this.search = search;
 	}
+
 
 
 
@@ -50,11 +53,10 @@ public class Pager {
 		return startNum;
 	}
 
-
-
 	public void setStartNum(Integer startNum) {
 		this.startNum = startNum;
 	}
+
 
 
 
@@ -62,18 +64,16 @@ public class Pager {
 		return lastNum;
 	}
 
-
-
 	public void setCurBlock(Integer curBlock) {
 		this.curBlock = curBlock;
 	}
 
 
 
+
 	public void setLastNum(Integer lastNum) {
 		this.lastNum = lastNum;
 	}
-
 
 
 	public Integer getCurBlock() {
@@ -91,9 +91,11 @@ public class Pager {
 	public Integer getCurPage() {
 		if (this.curPage==null || this.curPage==0) {
 			this.curPage = 1;
+
 		}
 		return curPage;
 	}
+
 
 
 
@@ -113,10 +115,12 @@ public class Pager {
 		maker.setSearch(getSearch());
 		maker.setStartRow(startRow);
 		maker.setLastRow(lastRow);
+
 		
 		return maker;
 	}
 	
+
 	
 	//View(JSP)
 	public void makePager(int totalCount ) {
@@ -129,12 +133,15 @@ public class Pager {
 		
 		
 		//3.totalBlock
+
 		int perBlock = 5;
 		totalBlock = totalPage/perBlock;
 		if (totalPage%perBlock!=0) {
 			totalBlock++;
 		}
+
 		//4.curPage 이용햇 현재 블록curBlock 표시
+
 		this.curBlock = curPage/perBlock;
 		if (curPage%perBlock != 0) {
 			curBlock++;
@@ -148,6 +155,6 @@ public class Pager {
 			lastNum = totalPage;
 		}
 	}
-			
+
 	}
 
