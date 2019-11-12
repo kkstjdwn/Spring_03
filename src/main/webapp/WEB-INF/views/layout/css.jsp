@@ -1,4 +1,7 @@
 <style type="text/css">
+	h2{
+	margin: auto;
+	text-align: center;}
 	#btn_right{
 	float: right;
 	margin-right: 0px;
