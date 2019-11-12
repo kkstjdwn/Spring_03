@@ -34,6 +34,12 @@ public class Pager {
 
 
 
+	public void setCurBlock(Integer curBlock) {
+		this.curBlock = curBlock;
+	}
+
+
+
 	public void setLastNum(Integer lastNum) {
 		this.lastNum = lastNum;
 	}
@@ -69,8 +75,8 @@ public class Pager {
 
 	
 	public RowMaker rowMake() {
-		int startRow = (this.curPage-1)*this.PERPAGE + 1;
-		int lastRow = this.curPage * this.PERPAGE;
+		int startRow = (this.getCurPage()-1)*this.PERPAGE + 1;
+		int lastRow = this.getCurPage() * this.PERPAGE;
 		
 		RowMaker maker = new RowMaker();
 		maker.setStartRow(startRow);
@@ -92,7 +98,7 @@ public class Pager {
 		
 		//3.totalBlock
 		int perBlock = 5;
-		int totalBlock = totalPage/perBlock;
+		totalBlock = totalPage/perBlock;
 		if (totalPage%perBlock!=0) {
 			totalBlock++;
 		}

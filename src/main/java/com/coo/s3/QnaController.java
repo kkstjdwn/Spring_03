@@ -17,7 +17,7 @@ import com.coo.s3.util.Pager;
 @RequestMapping("qna/**")
 public class QnaController {
 	@Inject
-	QnaService service;
+	private QnaService service;
 	
 	@RequestMapping(value = "qnaList")
 	public void qnaList(Model model, Pager pager) throws Exception{
@@ -25,8 +25,6 @@ public class QnaController {
 		List<QnaVO> ar =service.qnaList(pager);
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		
-		model.addAttribute("list", ar);
 		
 		
 	}

@@ -18,7 +18,7 @@
   	
   	<select id="qnaList" resultType="com.coo.s3.model.board.QnaVO" parameterType="com.coo.s3.util.RowMaker">
   	
-  	select * from (select N.*, rownum r from (select * from qna order by num desc) N)
+  	select * from (select Q.*, rownum r from (select * from qna order by num desc) Q)
   	where r between #{startRow} and #{lastRow}
   	
   		
