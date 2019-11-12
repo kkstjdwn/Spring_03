@@ -9,7 +9,59 @@ public class Pager {
 	private Integer curBlock;
 	private Integer totalBlock;
 	private Integer totalPage;
+	private String kind;
+	private String search;
 
+
+	public Integer getPerPage() {
+		return perPage;
+	}
+
+	public void setPerPage(Integer perPage) {
+		this.perPage = perPage;
+	}
+
+	public String getKind() {
+		if (this.kind==null) {
+			kind="";
+		}
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		if (this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public void setStartNum(Integer startNum) {
+		this.startNum = startNum;
+	}
+
+	public void setLastNum(Integer lastNum) {
+		this.lastNum = lastNum;
+	}
+
+	public void setCurBlock(Integer curBlock) {
+		this.curBlock = curBlock;
+	}
+
+	public void setTotalBlock(Integer totalBlock) {
+		this.totalBlock = totalBlock;
+	}
+
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
 
 	public Integer getTotalPage() {
 		return totalPage;
@@ -50,6 +102,8 @@ public class Pager {
 		RowMaker maker = new RowMaker();
 		maker.setStartRow(startRow);
 		maker.setLastRow(lastRow);
+		maker.setKind(this.kind);
+		maker.setSearch(this.search);
 		
 		return maker;
 	}

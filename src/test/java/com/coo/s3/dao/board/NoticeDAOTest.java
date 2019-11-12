@@ -32,8 +32,8 @@ public class NoticeDAOTest extends TestAbstractCase{
 //			
 //		}
 
-		int count = noticeDAO.noticeCount();
-		System.out.println(count/10+1);
+		//int count = noticeDAO.noticeCount();
+		//System.out.println(count/10+1);
 	}
 //	
 //	

@@ -16,13 +16,25 @@
   		select * from notice where num = #{num}
   	</select>
   	
-  	<select id="noticeCount" resultType="java.lang.Integer">
-  		select count(num) from notice
+  	<select id="noticeCount" resultType="java.lang.Integer" parameterType="com.coo.s3.util.RowMaker">
+  		select count(num) from (select N.*, ROWNUM R from    (select * from notice 
+  		<choose>
+  			<when test="kind == 'kT' || kind == '' ">where title like '%'||#{search}||'%'</when>
+  			<when test="kind == 'kW'">where writer like '%'||#{search}||'%'</when>
+  			<when test="kind == 'kC'">where contents like '%'||#{search}||'%'</when>
+  		</choose>
+  		ORDER BY num DESC) N )
   	</select>
   	
   	<select id="noticeList" parameterType="com.coo.s3.util.RowMaker" resultType="com.coo.s3.model.board.NoticeVO">
   		
-  		select * from (select N.*, ROWNUM R from    (select * from notice ORDER BY num DESC) N )
+  		select * from (select N.*, ROWNUM R from    (select * from notice 
+  		<choose>
+  			<when test="kind == 'kT' || kind == '' ">where title like '%'||#{search}||'%'</when>
+  			<when test="kind == 'kW'">where writer like '%'||#{search}||'%'</when>
+  			<when test="kind == 'kC'">where contents like '%'||#{search}||'%'</when>
+  		</choose>
+  		ORDER BY num DESC) N )
 		WHERE r BETWEEN #{startRow} and #{lastRow}
   	
   	</select>

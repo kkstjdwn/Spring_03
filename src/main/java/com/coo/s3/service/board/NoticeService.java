@@ -39,7 +39,7 @@ public class NoticeService {
 	public List<NoticeVO> noticeList(Pager pager) throws Exception{
 		
 		RowMaker maker = pager.makeRow();
-		pager.makePager(dao.noticeCount());
+		pager.makePager(dao.noticeCount(maker));
 		return dao.noticeList(maker);
 	}
 }

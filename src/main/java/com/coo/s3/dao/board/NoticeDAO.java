@@ -42,8 +42,8 @@ public class NoticeDAO {
 	}
 	
 	
-	public int noticeCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"noticeCount");
+	public int noticeCount(RowMaker maker) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"noticeCount",maker);
 	}
 	
 	public List<NoticeVO> noticeList(RowMaker maker) throws Exception{
