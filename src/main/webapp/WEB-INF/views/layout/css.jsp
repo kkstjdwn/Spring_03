@@ -15,4 +15,12 @@
 	margin: auto;
 	text-align: center;
 	}
+	h2{
+	margin: auto;
+	text-align: center;}
+	#curPage{
+	background-color: #337ab7;
+	color: white;
+	border-color: #337ab7;
+	}
 </style>

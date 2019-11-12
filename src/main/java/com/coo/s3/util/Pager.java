@@ -73,7 +73,7 @@ public class Pager {
 
 
 
-	
+	//DB
 	public RowMaker rowMake() {
 		int startRow = (this.getCurPage()-1)*this.PERPAGE + 1;
 		int lastRow = this.getCurPage() * this.PERPAGE;
@@ -86,7 +86,7 @@ public class Pager {
 	}
 	
 	
-	
+	//View(JSP)
 	public void makePager(int totalCount ) {
 		//1.totalCount --> 매개변수
 		//2.totalPage

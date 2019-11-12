@@ -52,9 +52,12 @@
 					<li><a href="qnaList?curPage=${pager.startNum-1 }">이전</a></li>
 				</c:if>
 				<c:forEach begin="${pager.startNum }" end="${pager.lastNum}" var="i">
-
+					<c:if test="${pager.curPage eq i }">
+					<li><a id="curPage">${i }</a></li>
+					</c:if>
+					<c:if test="${pager.curPage != i }">
 					<li><a href="qnaList?curPage=${i }">${i }</a></li>
-
+					</c:if>
 				</c:forEach>
 					<c:if test="${pager.curBlock lt pager.totalBlock }">				
 					<li><a href="qnaList?curPage=${pager.lastNum+1 }">다음</a></li>
