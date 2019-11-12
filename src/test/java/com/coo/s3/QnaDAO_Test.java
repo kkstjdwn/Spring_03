@@ -15,15 +15,18 @@ public class QnaDAO_Test extends TestAbstractCase{
 	
 	@Test
 	public void test() throws Exception{
-		for (int i = 0; i < 120; i++) {
-			QnaVO vo = new QnaVO();
-			vo.setTitle("질문번호 "+i);
-			vo.setWriter("질문자 "+i);
-			vo.setContents("내용"+i);
-			
-			dao.qnaInsert(vo);
-			Thread.sleep(50);
-		}
+//		for (int i = 0; i < 120; i++) {
+//			QnaVO vo = new QnaVO();
+//			vo.setTitle("질문번호 "+i);
+//			vo.setWriter("질문자 "+i);
+//			vo.setContents("내용"+i);
+//			
+//			dao.qnaInsert(vo);
+//			Thread.sleep(50);
+//		}
+		System.out.println(dao.qnaCount());
+		
+	//	assertNotNull(dao.qnaList());
 	}
 
 }

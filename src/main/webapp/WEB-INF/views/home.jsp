@@ -5,6 +5,8 @@
 	<title>Home</title>
 </head>
 <body>
+<c:import url="layout/nav.jsp"/>
+<c:import url="layout/bootStrap.jsp"/>
 <h1>
 	Hello world!  
 </h1>

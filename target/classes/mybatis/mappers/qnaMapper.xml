@@ -15,4 +15,17 @@
   		insert into qna values(not_seq.nextval,#{title},#{writer},#{contents},sysdate,0,0,0,0)
   	
   	</insert>
+  	
+  	<select id="qnaList" resultType="com.coo.s3.model.board.QnaVO" parameterType="com.coo.s3.util.RowMaker">
+  	
+  	select * from (select N.*, rownum r from (select * from qna order by num desc) N)
+  	where r between #{startRow} and #{lastRow}
+  	
+  		
+  	</select>
+  	
+  	<select id="qnaCount" resultType="java.lang.Integer">
+  		select max(rownum) from qna
+  		
+  	</select>
   </mapper>
