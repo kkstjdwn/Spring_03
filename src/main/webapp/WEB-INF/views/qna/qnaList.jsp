@@ -12,6 +12,7 @@
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/bootStrap.jsp"/>
 <div class="container">
+<c:if test="${pager.curPage le pager.totalPage }">
 		<h2>QnA LIST</h2>
 		<table class="table table-hover">
 			<thead>
@@ -69,7 +70,7 @@
 		<c:if test="${empty sessionScope.member}">
 			<a href="" class="btn btn-info" id="btn_right">글쓰기</a>
 		</c:if>
-
+</c:if>
 	</div>
 
 

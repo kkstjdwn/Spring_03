@@ -25,7 +25,7 @@
   	</select>
   	
   	<select id="qnaCount" resultType="java.lang.Integer">
-  		select max(rownum) from qna
+  		select count(num) from qna
   		
   	</select>
   </mapper>
