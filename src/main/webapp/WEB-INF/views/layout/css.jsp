@@ -23,7 +23,7 @@
 	line-height: inherit;
 	}
 	#not_sel{
-	width: 10%;
+	width: 12%;
 	float: left;
 	height: 34px;
 	margin-right: 10px;

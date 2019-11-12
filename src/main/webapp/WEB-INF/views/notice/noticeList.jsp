@@ -48,7 +48,7 @@
 					<select class="not_sel" name="kind" id="not_sel">
 						<option value="kT" id="kT">TITLE</option>
 						<option value="kW" id="kW">WRITER</option>
-						<option value="kR" id="kC">CONTENTS</option>
+						<option value="kC" id="kC">CONTENTS</option>
 					</select> <input type="text" class="form-control" id="search" name="search"
 						value="${pager.search }">
 					<button type="submit" class="btn btn-success" id="btn_ser">검색</button>
@@ -89,12 +89,9 @@
 
 	</div>
 	<script type="text/javascript">
-		var check = $
-		{
-			pager.kind
-		};
+		var check = '#${pager.kind}';
 		if (check == "") {
-			check = "kT";
+			check = "#kT";
 		}
 		$(check).prop("selected", "selected");
 	</script>
