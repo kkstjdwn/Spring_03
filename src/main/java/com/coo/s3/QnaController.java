@@ -21,7 +21,8 @@ public class QnaController {
 	
 	@RequestMapping(value = "qnaList")
 	public void qnaList(Model model, Pager pager) throws Exception{
-		
+		System.out.println(pager.getKind());
+		System.out.println(pager.getSearch());
 		List<QnaVO> ar =service.qnaList(pager);
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);

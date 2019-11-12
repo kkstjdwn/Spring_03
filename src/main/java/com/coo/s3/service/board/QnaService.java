@@ -19,7 +19,7 @@ public class QnaService {
 	
 	public List<QnaVO> qnaList(Pager pager) throws Exception{
 		RowMaker maker = pager.rowMake();
-		int totalCount = dao.qnaCount();
+		int totalCount = dao.qnaCount(maker);
 		pager.makePager(totalCount);
 		return dao.qnaList(maker);
 	}

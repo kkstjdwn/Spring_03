@@ -24,7 +24,7 @@ public class QnaDAO_Test extends TestAbstractCase{
 //			dao.qnaInsert(vo);
 //			Thread.sleep(50);
 //		}
-		System.out.println(dao.qnaCount());
+		//System.out.println(dao.qnaCount());
 		
 	//	assertNotNull(dao.qnaList());
 	}

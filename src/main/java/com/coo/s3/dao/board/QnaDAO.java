@@ -25,8 +25,8 @@ public class QnaDAO {
 		return sqlSession.selectList(NAMESPACE+"qnaList",maker);
 	}
 	
-	public int qnaCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"qnaCount");
+	public int qnaCount(RowMaker maker) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"qnaCount",maker);
 	}
 
 	

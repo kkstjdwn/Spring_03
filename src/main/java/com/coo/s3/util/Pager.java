@@ -4,6 +4,36 @@ public class Pager {
 	
 	private Integer curPage;
 	private final Integer PERPAGE = 10;
+	private String kind;
+	private String search;
+	
+	public String getKind() {
+		return kind;
+	}
+
+
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+
+
+	public String getSearch() {
+		if (this.search == null) {
+			this.search="";
+		}
+		return search;
+	}
+
+
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+
+
 	public Integer getTotalBlock() {
 		return totalBlock;
 	}
@@ -79,6 +109,8 @@ public class Pager {
 		int lastRow = this.getCurPage() * this.PERPAGE;
 		
 		RowMaker maker = new RowMaker();
+		maker.setKind(getKind());
+		maker.setSearch(getSearch());
 		maker.setStartRow(startRow);
 		maker.setLastRow(lastRow);
 		

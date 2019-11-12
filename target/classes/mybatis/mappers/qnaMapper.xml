@@ -18,14 +18,29 @@
   	
   	<select id="qnaList" resultType="com.coo.s3.model.board.QnaVO" parameterType="com.coo.s3.util.RowMaker">
   	
-  	select * from (select Q.*, rownum r from (select * from qna order by num desc) Q)
-  	where r between #{startRow} and #{lastRow}
+  	select * from (select Q.*, rownum r from (select * from qna
+  	<choose>
+  		<when test="kind == 'kT'"> where title like '%'||#{search}||'%'</when>
+  		<when test="kind == 'kW'"> where writer like '%'||#{search}||'%'</when>
+  		<when test="kind == 'kC'"> where contents like '%'||#{search}||'%'</when>
+  	</choose>
+  	order by num desc) Q)
   	
+  	where r between #{startRow} and #{lastRow} 
+  	
+  	</select>
+  	
+  	<select id="qnaCount" resultType="java.lang.Integer" parameterType="com.coo.s3.util.RowMaker">
+  		select count(num) from (select Q.*, rownum r from (select * from qna
+  	<choose>
+  		<when test="kind == 'kT'"> where title like '%'||#{search}||'%'</when>
+  		<when test="kind == 'kW'"> where writer like '%'||#{search}||'%'</when>
+  		<when test="kind == 'kC'"> where contents like '%'||#{search}||'%'</when>
+  	</choose>
+  	order by num desc) Q)
   		
   	</select>
   	
-  	<select id="qnaCount" resultType="java.lang.Integer">
-  		select count(num) from qna
-  		
-  	</select>
+  	
+  	
   </mapper>
