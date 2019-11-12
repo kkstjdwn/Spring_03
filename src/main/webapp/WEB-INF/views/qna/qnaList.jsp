@@ -46,47 +46,47 @@
 		</table>
 		<!--**********************버튼그룹 -->
 		<!-- session member, memberDTO -->
-
-		<div class="page_div">
-			<form class="form-horizontal pagination" action="qnaList" method="get" id="form_search">
-			<input type="hidden" value="1" name="curPage" id="curPage">
+<form class="form-horizontal" action="noticeList" method="get">
 			<div class="form-group">
-			<select name="kind">
-				<option value="kT" id="kT">Title</option> 
-				<option value="kC" id="kC">Contents</option>
-				<option value="kW"id="kW">Writer</option>
-			</select>
-				<label class="control-label col-sm-2" for="title">검색</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control form_search" id="search" name="search" value="${pager.search }">
+				<label class="control-label col-sm-2" for="search" id="label">검색</label>
+				<div class="col-sm-10" id="not_remote">
+					<select class="not_sel" name="kind" id="not_sel">
+						<option value="kT" id="kT">TITLE</option>
+						<option value="kW" id="kW">WRITER</option>
+						<option value="kR" id="kC">CONTENTS</option>
+					</select> <input type="text" class="form-control" id="search" name="search"
+						value="${pager.search }">
+					<button type="submit" class="btn btn-success" id="btn_ser">검색</button>
+					<div id="not_ul">
+						<ul class="pagination" id="paging">
+							<c:if test="${pager.curBlock gt 1}">
+								<li><a
+									href="noticeList?curPage=${pager.startNum-1 }&kind=${pager.kind}&search=${pager.search}">이전</a></li>
+							</c:if>
+							<c:forEach begin="${pager.startNum }" end="${pager.lastNum}"
+								var="i">
+								<c:if test="${pager.curPage eq i }">
+									<li><a
+										href="noticeList?curPage=${i }&kind=${pager.kind}&search=${pager.search}"
+										id="li_curPage">${i }</a></li>
+								</c:if>
+								<c:if test="${pager.curPage != i }">
+									<li><a
+										href="noticeList?curPage=${i }&kind=${pager.kind}&search=${pager.search}">${i }</a></li>
+								</c:if>
+							</c:forEach>
+							<c:if test="${pager.curBlock lt pager.totalBlock }">
+								<li><a
+									href="noticeList?curPage=${pager.lastNum+1 }&kind=${pager.kind}&search=${pager.search}">다음</a></li>
+							</c:if>
+						</ul>
+					</div>
+					<c:if test="${empty sessionScope.member}">
+						<a href="noticeWrite" class="btn btn-info" id="btn_right">글쓰기</a>
+					</c:if>
 				</div>
-			</div></form>
-			<ul class="pagination">
-				<c:if test="${pager.curBlock gt 1 }">
-<%-- 					<li><a href="qnaList?curPage=${pager.startNum-1 }&kind=${pager.kind}&search=${pager.search}">이전</a></li> --%>
-					<li><span id="${pager.startNum-1 }" class = "list">이전</span></li>
-				</c:if>
-				<c:forEach begin="${pager.startNum }" end="${pager.lastNum}" var="i">
-					<c:if test="${pager.curPage eq i }">
-<%-- 					<li><a class="curPage">${i }</a></li> --%>
-					<li><span id="${i }"  class="list curPage">${i }</span></li>
-					</c:if>
-					<c:if test="${pager.curPage != i }">
-<%-- 					<li><a href="qnaList?curPage=${i }&kind=${pager.kind}&search=${pager.search}">${i }</a></li> --%>
-					<li><span id="${i }"  class="list">${i }</span></li>
-					</c:if>
-				</c:forEach>
-					<c:if test="${pager.curBlock lt pager.totalBlock }">				
-<%-- 					<li><a href="qnaList?curPage=${pager.lastNum+1 }&kind=${pager.kind}&search=${pager.search}">다음</a></li> --%>
-					<li><span id="${pager.lastNum+1 }" class = "list">다음</span></li>
-					</c:if>
-			</ul>
-		<c:if test="${empty sessionScope.member}">
-			<a href="" class="btn btn-info pagination" id="btn_right">글쓰기</a>
-		</c:if>
-
-		</div>
-			
+			</div>
+		</form>			
 </c:if>
 	</div>
 <script type="text/javascript">

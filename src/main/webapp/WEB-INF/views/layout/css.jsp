@@ -26,4 +26,8 @@
 	#form_search{
 	width: 300px;
 	float: left;}
+	
+	
+	
 </style>
+
