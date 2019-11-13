@@ -4,18 +4,14 @@
 	<title>Home</title>
 </head>
 <body>
-
-<c:import url="layout/nav.jsp"/>
 <c:import url="layout/bootStrap.jsp"/>
+<c:import url="layout/nav.jsp"/>
+<div class="container">
 <h1>
 	Hello world!  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-
-<c:import url="layout/bootStrap.jsp"/>
-<c:import url="layout/nav.jsp"/>
-<div class="container">
 	<a href="notice/noticeList">Go List</a>
 </div>
 

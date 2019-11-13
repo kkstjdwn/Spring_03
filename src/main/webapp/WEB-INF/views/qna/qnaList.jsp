@@ -82,7 +82,7 @@
 							</ul>
 						</div>
 						<c:if test="${empty sessionScope.member}">
-							<a href="qnaWrite" class="btn btn-info" id="btn_right">글쓰기</a>
+							<a href="qnaWrite" class="btn btn-info" id="btn_right">Question</a>
 						</c:if>
 					</div>
 				</div>
