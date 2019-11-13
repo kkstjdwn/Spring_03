@@ -10,9 +10,9 @@
   	
 <!--   	</select> -->
   	
-  	<insert id="qnaInsert"  parameterType="com.coo.s3.model.board.QnaVO" >
+  	<insert id="qnaWrite"  parameterType="com.coo.s3.model.board.QnaVO" >
   		
-  		insert into qna values(not_seq.nextval,#{title},#{writer},#{contents},sysdate,0,0,0,0)
+  		insert into qna values(not_seq.nextval,#{title},#{writer},#{contents},sysdate,0,not_seq.currval,0,0)
   	
   	</insert>
   	
@@ -24,7 +24,7 @@
   		<when test="kind == 'kW'"> where writer like '%'||#{search}||'%'</when>
   		<when test="kind == 'kC'"> where contents like '%'||#{search}||'%'</when>
   	</choose>
-  	order by num desc) Q)
+  	order by ref desc, step asc) Q)
   	
   	where r between #{startRow} and #{lastRow} 
   	
@@ -37,9 +37,30 @@
   		<when test="kind == 'kW'"> where writer like '%'||#{search}||'%'</when>
   		<when test="kind == 'kC'"> where contents like '%'||#{search}||'%'</when>
   	</choose>
-  	order by num desc) Q)
+  	order by ref desc, step asc) Q)
   		
   	</select>
+  	
+  	<select id="qnaSelect" resultType="com.coo.s3.model.board.QnaVO" parameterType="com.coo.s3.model.board.QnaVO">
+  	
+  	select * from qna where num = #{num}
+  	
+  	</select>
+  	
+  	<insert id="qnaReply" parameterType="com.coo.s3.model.board.QnaVO">
+  	
+  	insert into qna values(not_seq.nextval,#{title},#{writer},#{contents},sysdate,0,
+  							#{ref},#{step},#{depth}
+						)
+  	
+  	</insert>
+  	
+  	<update id="qnaReplyUpdate" parameterType="com.coo.s3.model.board.QnaVO">
+  		update qna set step=step+1
+  		where ref = #{ref} and step >#{step}
+  		 
+  	
+  	</update>
   	
   	
   	

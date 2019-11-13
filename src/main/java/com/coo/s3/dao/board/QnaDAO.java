@@ -16,9 +16,9 @@ public class QnaDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "qnaMapper.";
 	
-	public int qnaInsert(QnaVO vo) throws Exception{
+	public int qnaWrite(QnaVO qnaVO) throws Exception{
 		
-		return sqlSession.insert(NAMESPACE+"qnaInsert",vo);
+		return sqlSession.insert(NAMESPACE+"qnaWrite",qnaVO);
 	}
 	
 	public List<QnaVO> qnaList(RowMaker maker) throws Exception{
@@ -27,6 +27,18 @@ public class QnaDAO {
 	
 	public int qnaCount(RowMaker maker) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"qnaCount",maker);
+	}
+	
+	public QnaVO qnaSelect(QnaVO qnaVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"qnaSelect",qnaVO);
+	}
+	
+	public int qnaReply(QnaVO qnaVO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"qnaReply",qnaVO);
+	}
+	
+	public int qnaReplyUpdate(QnaVO qnaVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"qnaReplyUpdate",qnaVO);
 	}
 
 	

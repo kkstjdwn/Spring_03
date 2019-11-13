@@ -12,8 +12,8 @@
 <c:import url="../layout/nav.jsp"  />
 <c:import url="../layout/bootStrap.jsp"/>
 	<div class="container">
-		<h2>WRITE PAGE</h2>
-		<form class="form-horizontal" action="noticeWrite" method="post" onsubmit=true>
+		<h2>QUESTOPN WRITE</h2>
+		<form class="form-horizontal" action="qnaWrite" method="post" onsubmit=true>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="title">TITLE</label>
 				<div class="col-sm-10">

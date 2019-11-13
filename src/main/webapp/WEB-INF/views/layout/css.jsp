@@ -3,16 +3,20 @@
 	#btn_right{
 	float: right;
 	margin-right: 0px;
+	text-align: center;
+	line-height: inherit;}
+	#btn_right2{
+	float: right;
+	margin-right: 0px;
 	text-align: center;}
 	.btn_gp{
 	margin-left: 17%;
 	float: left;
-	}
-	.btn{
 	margin-right: 5px;
 	}
 	#contents{
 	min-height: 400px;}
+	
  	.page_div{ 
  	margin: auto; 
  	} 
@@ -28,22 +32,6 @@
 	width: 300px;
 	float: left;}
 
-
-	#btn_right{
-	float: right;
-	margin-right: 0px;
-	line-height: inherit;
-	}
-	.btn_gp{
-	margin-left: 17%;
-	float: left;
-	}
-	.btn{
-	margin-right: 5px;
-	}
-	#contents{
-	min-height: 400px;}
-	
 	#li_curPage{
 	background-color: #337ab7;
 	color: white;

@@ -3,21 +3,16 @@ package com.coo.s3.model.board;
 import java.sql.Date;
 
 public class QnaVO {
-	private int num;
+	private Integer num;
 	private String title;
 	private String writer;
 	private String contents;
 	private Date reg_date;
-	private int hit;
-	private int ref;
-	private int step;
-	private int depth;
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
+	private Integer hit;
+	private Integer ref;
+	private Integer step;
+	private Integer depth;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -42,30 +37,39 @@ public class QnaVO {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	public int getHit() {
+	
+	public Integer getHit() {
 		return hit;
 	}
-	public void setHit(int hit) {
+	public void setHit(Integer hit) {
 		this.hit = hit;
 	}
-	public int getRef() {
+	public Integer getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+	public Integer getRef() {
 		return ref;
 	}
-	public void setRef(int ref) {
+	public void setRef(Integer ref) {
 		this.ref = ref;
 	}
-	public int getStep() {
+	public Integer getStep() {
 		return step;
 	}
-	public void setStep(int step) {
+	public void setStep(Integer step) {
 		this.step = step;
 	}
-	public int getDepth() {
+	public Integer getDepth() {
 		return depth;
 	}
-	public void setDepth(int depth) {
+	public void setDepth(Integer depth) {
 		this.depth = depth;
 	}
+	
+	
 	
 
 }

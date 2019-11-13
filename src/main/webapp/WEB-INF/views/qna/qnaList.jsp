@@ -31,7 +31,15 @@
 					<c:forEach items="${list}" var="dto">
 						<tr>
 							<th>${dto.num}</th>
-							<th><a href="">${dto.title}</a></th>
+							
+							<th>
+							<c:if test="${dto.depth != 0}">
+							<c:forEach begin="1" end="${dto.depth}">&nbsp;&nbsp;</c:forEach>
+							ㄴ
+							</c:if>
+							<a href="qnaSelect?num=${dto.num}">${dto.title}</a>
+							</th>
+							
 							<th>${dto.writer}</th>
 							<th>${dto.reg_date}</th>
 							<th>${dto.hit}</th>

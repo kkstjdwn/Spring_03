@@ -23,5 +23,29 @@ public class QnaService {
 		pager.makePager(totalCount);
 		return dao.qnaList(maker);
 	}
+	
+	
+	public int qnaWrite(QnaVO qnaVO) throws Exception{
+		
+		
+		return dao.qnaWrite(qnaVO);
+	}
+	
+	public QnaVO qnaSelect(QnaVO qnaVO) throws Exception{
+		return dao.qnaSelect(qnaVO);
+	}
+	
+	public int qnaReply(QnaVO qnaVO) throws Exception{
+		QnaVO pVO = dao.qnaSelect(qnaVO);
+		System.out.println(qnaVO.getNum());
+		
+		int result = dao.qnaReplyUpdate(pVO);
+		qnaVO.setRef(pVO.getRef());
+		qnaVO.setStep(pVO.getStep()+1);
+		qnaVO.setDepth(pVO.getDepth()+1);
+		
+		return dao.qnaReply(qnaVO);
+		
+	}
 
 }
